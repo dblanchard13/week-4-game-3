@@ -9,22 +9,24 @@
       height: 300px;
     }
   </style>
+
 </head>
 <body>
   <h1>Number to Guess: <span id="number-to-guess"></span></h1>
+  <h1>Wins: <span id="win"></span></h1>
+  <h1>Losses: <span id="lose"></span></h1>
+
+
 
   <div id="crystals">
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script type="text/javascript">
-
   var counter = 0;
   var win = 0;
   var lose = 0;
-
   var targetNumber = Math.floor(Math.random() * 120) + 19; // RNG
   $("#number-to-guess").text(targetNumber);
-
   var numberOptions = [1, 2, 3, 5, 7, 11, 13];
   var numberOptionsOne = [10, 15, 20, 25];
   var numberOptionsTwo = [4, 6, 9, 12, 17];
@@ -38,22 +40,20 @@
     $("#crystals").append(imageCrystal);
   }
 
-  for (var i = 0; i < 1; i++) {
-    var imageCrystalOne = $("<img>");
-    imageCrystalOne.addClass("crystal-image");
-    imageCrystalOne.attr("src", "https://s-media-cache-ak0.pinimg.com/736x/c7/22/f2/c722f2834e3e181ac5fe3a0442c25d48.jpg");
-    imageCrystalOne.attr("data-crystalvalue", numberOptionsOne[Math.floor(Math.random(i)*numberOptionsOne.length)]);
-    $("#crystals").append(imageCrystalOne);
-  }
-
-
-for (var i = 0; i < 1; i++) {
-    var imageCrystalTwo = $("<img>");
-    imageCrystalTwo.addClass("crystal-image");
-    imageCrystalTwo.attr("src", "https://s-media-cache-ak0.pinimg.com/736x/a9/86/80/a98680471bfec9c816ab9159c48d9c3a.jpg");
-    imageCrystalTwo.attr("data-crystalvalue", numberOptionsTwo[Math.floor(Math.random(i)*numberOptionsTwo.length)]);
-    $("#crystals").append(imageCrystalTwo);
-  }
+    for (var i = 0; i < 1; i++) {
+      var imageCrystalOne = $("<img>");
+      imageCrystalOne.addClass("crystal-image");
+      imageCrystalOne.attr("src", "https://s-media-cache-ak0.pinimg.com/736x/c7/22/f2/c722f2834e3e181ac5fe3a0442c25d48.jpg");
+      imageCrystalOne.attr("data-crystalvalue", numberOptionsOne[Math.floor(Math.random(i)*numberOptionsOne.length)]);
+      $("#crystals").append(imageCrystalOne);
+    }
+      for (var i = 0; i < 1; i++) {
+          var imageCrystalTwo = $("<img>");
+          imageCrystalTwo.addClass("crystal-image");
+          imageCrystalTwo.attr("src", "https://s-media-cache-ak0.pinimg.com/736x/a9/86/80/a98680471bfec9c816ab9159c48d9c3a.jpg");
+          imageCrystalTwo.attr("data-crystalvalue", numberOptionsTwo[Math.floor(Math.random(i)*numberOptionsTwo.length)]);
+          $("#crystals").append(imageCrystalTwo);
+        }
   
     for (var i = 0; i < 1; i++) {
     var imageCrystalThree = $("<img>");
@@ -63,8 +63,6 @@ for (var i = 0; i < 1; i++) {
     $("#crystals").append(imageCrystalThree);
   }
 
-
-
   $(".crystal-image").on("click", function() {
     var crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
@@ -72,15 +70,14 @@ for (var i = 0; i < 1; i++) {
     alert("New score: " + counter);
     if (counter === targetNumber) {
       win++
+      $("#win").text(win)
       alert("You win!");
     }
     else if (counter >= targetNumber) {
       lose++
+      $("#lose").text(lose)
       alert("You lose!!");
     }
-
-
-
   });
 
 
@@ -90,9 +87,4 @@ for (var i = 0; i < 1; i++) {
 
 
 </body>
-<br>
-Win: 0
-<br>
-Lose: 0
-
 </html>
