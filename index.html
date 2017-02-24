@@ -13,9 +13,9 @@
 </head>
 <body>
   <h1>Number to Guess: <span id="number-to-guess"></span></h1>
+  <h1>Counter: <span id="counter"></span></h1>
   <h1>Wins: <span id="win"></span></h1>
   <h1>Losses: <span id="lose"></span></h1>
-
 
 
   <div id="crystals">
@@ -67,7 +67,7 @@
     var crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
     counter += crystalValue;
-    alert("New score: " + counter);
+    $("#counter").text(counter)
     if (counter === targetNumber) {
       win++
       $("#win").text(win)
