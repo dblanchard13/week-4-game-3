@@ -17,6 +17,9 @@
   <h1>Wins: <span id="win"></span></h1>
   <h1>Losses: <span id="lose"></span></h1>
 
+<button id="reset">Reset Counter</button>
+
+<br><br><hr>
 
   <div id="crystals">
   </div>
@@ -78,8 +81,14 @@
       $("#lose").text(lose)
       alert("You lose!!");
     }
-  });
 
+$("#reset").on("click", function(){
+ $("#counter").text(counter = 0)
+ 
+}
+  )
+
+  });
 
 
   </script>
