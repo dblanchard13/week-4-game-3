@@ -11,14 +11,14 @@ $(document).ready(function() {
   var imageCrystalFour = generateImageCrystalWithImage("https://lh3.googleusercontent.com/rn5iBh-ARszvIsb-QqkDJANrEPcVeGT7lYHIePP5ay1MwoueiK77goSO93S1pnr0ZA=h900");
 
   function generateImageCrystalWithImage (imageSrc) {
-    var crystal = $('<img>');
-    crystal.addClass('crystal-image');
+    var imageCrystal = $('<img>');
+    imageCrystal.addClass('crystal-image');
     imageCrystal.attr("src", imageSrc);
     imageCrystal.attr("data-crystalvalue", generateRandomNumber(1, 12));
     $("#crystals").append(imageCrystal);
 
     // this line is crucial since it returns a reference to the crystal image that's created
-    return crystal
+    return imageCrystal
   };
 
 
@@ -31,13 +31,13 @@ $(document).ready(function() {
 
     if (counter === targetNumber) {
       win++
-      $("#win").text(win)
       alert("You win!");
+      resetGameplayValues();
     }
     else if (counter >= targetNumber) {
       lose++
-      $("#lose").text(lose)
       alert("You lose!!");
+      resetGameplayValues();
     }
   });
 
@@ -61,6 +61,9 @@ $(document).ready(function() {
     imageCrystalTwo.attr("data-crystalvalue", generateRandomNumber(1, 12) );
     imageCrystalThree.attr("data-crystalvalue", generateRandomNumber(1, 12) );
     imageCrystalFour.attr("data-crystalvalue", generateRandomNumber(1, 12) );
+
+    $("#lose").text(lose);
+    $("#win").text(win);
   };
 
   function generateRandomNumber (min, max) {
